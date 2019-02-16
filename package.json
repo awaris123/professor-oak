@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/awaris123/PokemonDS/issues"
   },
-  "homepage": "https://github.com/awaris123/PokemonDS#readme"
+  "homepage": "https://github.com/awaris123/PokemonDS#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
