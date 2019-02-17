@@ -5,10 +5,11 @@ Created on Sat Feb 16 13:16:51 2019
 @author: PC USER
 """
 import csv
-import pandas as pd
 import json
+import sys
 from operator import itemgetter
 
+print(sys.argv[0])
 pokedex = []
 sortedList = []
     
@@ -52,9 +53,12 @@ def coeffSort():
         elif legendary == 'no' and mega == 'yes':
             if p['mega'] == 'FALSE':
                 tempList.append(p)
-                
+    output = ""            
     for p in tempList:
-        print(str(p) +'\n')
+        for k, v in p.items():
+          output += str(k) +" : " + str(v) + "\n" 
+        output += "\n-----------------------\n"
+    print(output)
     return tempList
 
 def priorityVal():
