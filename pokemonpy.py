@@ -28,7 +28,7 @@ def createPokedex():
             if line_count <= 0:
                 line_count += 1
             else:
-                pokedex.append({'id':row[0], 'name':row[1], 'type1':row[2], 'type2':row[3], 'total':row[4], 'hp':row[5], 'attack':row[6], 'defense':row[7], 'spatk':row[8], 'spdef':row[9], 'speed':row[10], 'generation':row[11], 'legendary':row[12], 'mega':row[13], 'coeff':0})
+                pokedex.append({'id':row[0], 'Name ':row[1], ' Type 1 ':row[2], ' Type 2 ':row[3], 'total':row[4], 'hp':row[5], 'attack':row[6], 'defense':row[7], 'spatk':row[8], 'spdef':row[9], 'speed':row[10], 'generation':row[11], 'legendary':row[12], 'mega':row[13], 'coeff':0})
                 line_count += 1
     return pokedex
     print(f'Processed {line_count} lines.')
@@ -45,8 +45,8 @@ def pokeSort():
 def coeffSort():
     sortedList = pokedex
     sortedList = sorted(pokedex, key=lambda item: int(item[str('coeff')]))
-    legendary = 'yes'
-    mega = 'yes'
+    legendary = sys.argv[7]
+    mega = sys.argv[8]
     tempList = []
     for p in sortedList:
         if legendary == 'no' and mega == 'no':

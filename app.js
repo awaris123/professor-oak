@@ -31,6 +31,17 @@ app.get('/generate', function(req, res){
 
 
 app.post('/show', function(req, res){
+
+  var leg = 'yes'
+  var mega = 'yes'
+  console.log(req.body.sp)
+  if(req.body.sp.includes("Legendary")){
+      leg = 'no'
+  }
+  if (req.body.sp.includes("Mega")){
+    mega = 'no'
+  }
+
   var pref = {
     "HP":req.body.HP,
     "Atk": req.body.Attack,
@@ -40,25 +51,22 @@ app.post('/show', function(req, res){
     "Spd": req.body.Speed,
   }
 
-  console.log("hit /show");
   var roster = ""
   const spawn = require("child_process").spawn;
-  const pythonProcess = spawn('python3',['./pokemonpy.py', pref["HP"], pref["Atk"], pref["Def"],pref["SpAtk"], pref["SpDef"], pref["Spd"]])
+  const pythonProcess = spawn('python3',['./pokemonpy.py', pref["HP"], pref["Atk"], pref["Def"],pref["SpAtk"], pref["SpDef"], pref["Spd"],leg,mega])
   pythonProcess.stdout.on('data', function(data) {
     // Do something with the data returned from python script
     // console.log(data + "node")
     var arr = Array.from(data.toString().split("-----------------------"))
-    console.log(arr)
     counter = 0
     arr2 = []
     for (pk in arr){
       arr2[counter] = Array.from(arr[pk].split("|")).slice(1,4)
-
       counter += 1
     }
 
-    console.log(arr2)
-    arr = arr2
+    console.log(arr2.slice(0,arr2.length-1))
+    arr = arr2.slice(0,arr2.length-1)
     res.render("show", {
       roster: arr
     })
