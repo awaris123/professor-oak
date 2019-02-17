@@ -52,18 +52,5 @@ for item in pokeSort():
     print(str(item) + '\n')
 
 
-'''      
-def attackSort():
-    sortedList = pokedex
-    sortedList = sorted(pokedex, key=lambda item: int(item['attack']))
-    return sortedList
-'''
-
-'''
-for item in attackSort():
-    print(str(item) + '\n -------------------------------------------------------------------------------')
-'''
-
-
 
     
