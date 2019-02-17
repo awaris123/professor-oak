@@ -8,9 +8,26 @@
   </div>
 </div>
 
-<% roster.forEach(function(pk){ %>
-<li><%= pk %> </li>
-<% }) %>
+
+<div class="container mt-3">
+<ul class="list-group">
+
+  <% roster.forEach(function(pk){ %>
+
+  <li class="list-group-item"><%= pk %> </li>
+
+  <% }) %>
+
+</ul>
+</div>
+
+
+
+<form class="" action="generate" method="GET">
+  <center>
+    <button  type="submit" class = "btn btn-primary"  name="Make a roster!">Reconfigure your prefernces</button>
+  </center>
+</form>
 
 
 
