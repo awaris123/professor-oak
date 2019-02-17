@@ -1,0 +1,92 @@
+<header>
+  <% include partials/head %>
+</header>
+
+      <div class="container">
+        <div class="page-header">
+          <h1>What kind of team will you choose?</h1>
+        </div>
+      </div>
+
+<div class="container mt-3">
+  <form name = "" method = "POST"  action="/generate">
+
+      <div class="form-group">
+        <label for="HP">Select priority for HP (1-6):</label>
+          <select class="form-control" id="HP">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Attack">Select priority for Attack (1-6):</label>
+          <select class="form-control" id="Attack">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+          <label for="Defense">Select priority for Defense (1-6):</label>
+            <select class="form-control" id="Defense">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="SpAttack">Select priority for Sp. Attack (1-6):</label>
+          <select class="form-control" id="SpAttack">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="SpDefense">Select priority for Sp. Defense (1-6):</label>
+          <select class="form-control" id="SpDefense">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Speed">Select priority for Speed (1-6):</label>
+          <select class="form-control" id="Speed">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+          </select>
+      </div>
+         <button type="submit" class="btn btn-primary">Submit!</button>
+    </form>
+</div>
+
+
+<footer>
+  <% include partials/footer%>
+</footer>
