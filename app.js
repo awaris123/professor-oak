@@ -29,8 +29,8 @@ app.get('/generate', function(req, res){
 
 });
 
-app.post('/show', function(req, res){
 
+app.post('/show', function(req, res){
   var pref = {
     "HP":req.body.HP,
     "Atk": req.body.Attack,
@@ -40,33 +40,34 @@ app.post('/show', function(req, res){
     "Spd": req.body.Speed,
   }
 
-
-
   console.log("hit /show");
-
-  roster = ""
+  var roster = ""
   const spawn = require("child_process").spawn;
   const pythonProcess = spawn('python3',['./pokemonpy.py', pref["HP"], pref["Atk"], pref["Def"],pref["SpAtk"], pref["SpDef"], pref["Spd"]])
   pythonProcess.stdout.on('data', function(data) {
     // Do something with the data returned from python script
-    console.log(data + "node")
+    // console.log(data + "node")
+    var arr = Array.from(data.toString().split("-----------------------"))
+    console.log(arr)
+    counter = 0
+    arr2 = []
+    for (pk in arr){
+      arr2[counter] = Array.from(arr[pk].split("|")).slice(1,4)
 
+      counter += 1
+    }
+
+    console.log(arr2)
+    arr = arr2
     res.render("show", {
-      roster: data.split("|")
+      roster: arr
     })
 
-});
-
-res.render("show", {
-  roster: "N/A"
-})
-
+  });
 
 
 
 });
-
-
 
 app.listen(8080, function () {
 

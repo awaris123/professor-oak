@@ -8,7 +8,9 @@
   </div>
 </div>
 
-<%= roster[0] %>
+<% roster.forEach(function(pk){ %>
+<li><%= pk %> </li>
+<% }) %>
 
 
 
