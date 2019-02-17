@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines":{
-    "node":"11.7"
+    "node":"11.7",
+    "python":"3.6.7"
   },
   "repository": {
     "type": "git",
