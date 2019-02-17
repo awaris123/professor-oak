@@ -18,7 +18,9 @@
   "homepage": "https://github.com/awaris123/PokemonDS#readme",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "1.17.5"
   }
 }
