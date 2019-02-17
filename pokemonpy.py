@@ -9,10 +9,17 @@ import json
 import sys
 from operator import itemgetter
 
-print(sys.argv[0])
+
 pokedex = []
 sortedList = []
-    
+
+HP = int(sys.argv[1])
+Atk = int(sys.argv[2])
+Def = int(sys.argv[3])
+SpAtk = int(sys.argv[4])
+SpDef = int(sys.argv[5])
+Spd = int(sys.argv[6])
+
 def createPokedex():
     with open('Pokemon_all.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
@@ -25,7 +32,7 @@ def createPokedex():
                 line_count += 1
     return pokedex
     print(f'Processed {line_count} lines.')
-    
+
 def pokeSort():
     sortedList = pokedex
     sorter = input("Enter what you would like to sort by:")
@@ -38,8 +45,8 @@ def pokeSort():
 def coeffSort():
     sortedList = pokedex
     sortedList = sorted(pokedex, key=lambda item: int(item[str('coeff')]))
-    legendary = input("Do you want to filter out legendaries?")
-    mega = input("Do you want to filter out megas?")
+    legendary = 'yes'
+    mega = 'yes'
     tempList = []
     for p in sortedList:
         if legendary == 'no' and mega == 'no':
@@ -53,23 +60,23 @@ def coeffSort():
         elif legendary == 'no' and mega == 'yes':
             if p['mega'] == 'FALSE':
                 tempList.append(p)
-    output = ""            
-    for p in tempList:
+    output = ""
+    for p in tempList[-7:-1]:
         for k, v in p.items():
-          output += str(k) +" : " + str(v) + "\n" 
+          output += str(k) +" : " + str(v) + "\n" + "|"
         output += "\n-----------------------\n"
-    print(output)
-    return tempList
+
+    return output
 
 def priorityVal():
-    print("Enter priority values for hp,att,def,spatk,spdef,speed: (seperated by spaces")
-    prio = [int(x) for x in input().split()]
+    # print("Enter priority values for hp,att,def,spatk,spdef,speed: (seperated by spaces")
+    prio = [HP, Atk, Def, SpAtk,SpDef,Spd]
     for p in pokedex:
-        p['coeff'] = int(p['hp'])/prio[0] + int(p['attack'])/prio[1] + int(p['defense'])/prio[2] + int(p['spatk'])/prio[3] + int(p['spdef'])/prio[4] + int(p['speed'])/prio[5]
-    coeffSort()
+        p['coeff'] = int(p['hp']) /prio[0] + int(p['attack'])/prio[1] + int(p['defense'])/prio[2] + int(p['spatk'])/prio[3] + int(p['spdef'])/prio[4] + int(p["speed"])/prio[5]
+    return coeffSort()
 
 
-createPokedex()    
-priorityVal()
+createPokedex()
+print(priorityVal())
 
-    
+sys.stdout.flush()

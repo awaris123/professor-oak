@@ -40,16 +40,29 @@ app.post('/show', function(req, res){
     "Spd": req.body.Speed,
   }
 
+
+
+  console.log("hit /show");
+
+  roster = ""
   const spawn = require("child_process").spawn;
-  const pythonProcess = spawn('python',["pokemonpy.py", pref])
+  const pythonProcess = spawn('python3',['./pokemonpy.py', pref["HP"], pref["Atk"], pref["Def"],pref["SpAtk"], pref["SpDef"], pref["Spd"]])
   pythonProcess.stdout.on('data', function(data) {
-        console.log(data.toString());
-      })
+    // Do something with the data returned from python script
+    console.log(data + "node")
+
+    res.render("show", {
+      roster: data.split("|")
+    })
+
+});
+
+res.render("show", {
+  roster: "N/A"
+})
 
 
-  console.log(pref)
 
-  res.render("show")
 
 });
 
