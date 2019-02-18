@@ -34,13 +34,17 @@ app.post('/show', function(req, res){
 
   var leg = 'yes'
   var mega = 'yes'
-  console.log(req.body.sp)
-  if(req.body.sp.includes("Legendary")){
-      leg = 'no'
+
+  if (req.body.sp){
+    console.log(req.body.sp)
+    if(req.body.sp.includes("Legendary")){
+        leg = 'no'
+    }
+    if (req.body.sp.includes("Mega")){
+      mega = 'no'
+    }
   }
-  if (req.body.sp.includes("Mega")){
-    mega = 'no'
-  }
+
 
   var pref = {
     "HP":req.body.HP,
