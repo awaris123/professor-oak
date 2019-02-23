@@ -5,11 +5,12 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines":{
     "node":"11.7",
-    "python":"3.6.7"
+    "python":"3.5.3"
   },
   "repository": {
     "type": "git",
