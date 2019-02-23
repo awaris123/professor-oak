@@ -10,7 +10,7 @@
   },
   "engines":{
     "node":"11.7",
-    "python":"3.5.3"
+    "python3":"3.5.3"
   },
   "repository": {
     "type": "git",
